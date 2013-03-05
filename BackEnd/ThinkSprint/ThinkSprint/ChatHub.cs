@@ -9,83 +9,87 @@ namespace ThinkSprint
 {
     public class ChatHub : Hub
     {
-        private static QuestionProvider _provider = new QuestionProvider();
 
-
+        private static Dictionary<string, Game> _startedGames = new Dictionary<string, Game>();
+        private static Game _newGame = new Game();
         public void Send(string name, string message)
         {
-
-
-
             // Call the broadcastMessage method to update clients.
             Clients.All.broadcastMessage(name, message);
         }
 
 
-        public void SendAnswer(string name, int index)
+        public void SendAnswer(string name, int index, string gameName)
         {
-            var answer = _provider.CurrentQuestion.Options[index];
+            var game = _startedGames[gameName];
+            var answer = game.Provider.CurrentQuestion.Options[index];
 
-            if(!_players.Any())
+            if (!game.Players.Any())
                 return;
 
-            if(name == _players[playerIndex].Name)
+            if (name == game.Players[game.PlayerIndex].Name)
                 return;
-            
+
             var result = new Result();
-            result.Players = _players;
-            result.Correct = _provider.CurrentQuestion.Answer == answer;
+            result.Players = game.Players;
+            result.Correct = game.Provider.CurrentQuestion.Answer == answer;
 
             if (result.Correct)
             {
-                var player = _players.Single(z => z.Name == name);
+                var player = game.Players.Single(z => z.Name == name);
                 player.Score++;
             }
 
-            Clients.All.RecieveResult(result);
+            Clients.Group(gameName).RecieveResult(result);
 
-            SendQuestion();
+            SendQuestion(game);
         }
 
 
 
-        private static List<Player> _players = new List<Player>();
+
         public void Register(string name)
         {
-            _players.Add(new Player { Name = name });
-
-            if (_players.Count == 2)
+            _newGame.Players.Add(new Player { Name = name });
+            Clients.Caller.OnRegister(_newGame.Name);
+            Groups.Add(Context.ConnectionId, _newGame.Name);
+            if (_newGame.Players.Count == 2)
+            {
                 StartGame();
+            }
         }
 
-        public void ResetGame()
+        public void ResetGame(string gameName)
         {
-            foreach (var player in _players)
+            var game = _startedGames[gameName];
+            foreach (var player in game.Players)
             {
                 player.Score = 0;
             }
 
-            Clients.All.OnGameReset();
+            Clients.Group(gameName).OnGameReset();
         }
 
         public void StartGame()
         {
-            SendQuestion(); ;
+            _startedGames[_newGame.Name] = _newGame;
+            SendQuestion(_newGame); 
+            _newGame = new Game();
         }
 
         public override System.Threading.Tasks.Task OnDisconnected()
         {
-            _players.Clear();
             return base.OnDisconnected();
         }
 
-        private static int playerIndex = 0;
-        private void SendQuestion()
+
+        private void SendQuestion(Game game)
         {
-            var question = _provider.GetNextQuestion();
-            Clients.All.RecieveQuestion(_players[playerIndex].Name, question);
-            playerIndex++;
-            playerIndex = playerIndex%2;
+            var question = game.Provider.GetNextQuestion();
+            Clients.Group(game.Name).RecieveQuestion(game.Players[game.PlayerIndex].Name, question);
+            Clients.Caller.RecieveQuestion(game.Players[game.PlayerIndex].Name, question);
+            game.PlayerIndex++;
+            game.PlayerIndex = game.PlayerIndex % 2;
         }
 
 
