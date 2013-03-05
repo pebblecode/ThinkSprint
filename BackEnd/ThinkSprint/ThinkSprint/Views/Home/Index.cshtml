@@ -10,6 +10,8 @@
     <title>-=X=-</title>
     <meta name="viewport" content="width=device-width" />
 
+    <link href='http://fonts.googleapis.com/css?family=Dosis:800' rel='stylesheet' type='text/css'>mark
+
     <link rel="stylesheet" href="~/Content/Site.css">
 
     <!--[if lt IE 9]>
@@ -39,21 +41,25 @@
 
         </div>
 
-        <div class="question">
-            <div id="question"></div>
-            <div class="equals">=</div>
-        </div>
         <div id="currentPlayer"></div>
-        <!-- <div id="result"></div> -->
+
+        <div class="q-a">
+
+            <div class="question">
+                <div id="question"></div>
+                <div class="equals">=</div>
+            </div>
+            <!-- <div id="result"></div> -->
 
 
-        <div class="answers">
-            <button id="answer1" onclick="SendAnswer(0);"></button>
-            <button id="answer2" onclick="SendAnswer(1);"></button>
-            <button id="answer3" onclick="SendAnswer(2);"></button>
-            <button id="answer4" onclick="SendAnswer(3);"></button>
-        </div>
+            <div class="answers">
+                <button id="answer1" onclick="SendAnswer(0);"></button>
+                <button id="answer2" onclick="SendAnswer(1);"></button>
+                <button id="answer3" onclick="SendAnswer(2);"></button>
+                <button id="answer4" onclick="SendAnswer(3);"></button>
+            </div>
 
+        </div> <!-- end .q-a -->
 
         <div class="container">
             <input type="text" id="message" />
