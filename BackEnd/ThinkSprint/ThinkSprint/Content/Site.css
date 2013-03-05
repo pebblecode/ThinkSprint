@@ -509,23 +509,28 @@ table {
 body {
   background-color: #fbfaf9;
   color: #544f45;
+  font-family: sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
 
-/* line 39, sass/Site.scss */
+/* line 41, sass/Site.scss */
 .wrap {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 48, sass/Site.scss */
+/* line 50, sass/Site.scss */
 header h1 {
   text-align: center;
   font-size: 3em;
   letter-spacing: 2px;
   margin-bottom: 0;
+  font-family: 'Dosis', sans-serif;
+  font-weight: 800;
+  color: #ff401a;
 }
 
-/* line 55, sass/Site.scss */
+/* line 60, sass/Site.scss */
 .track {
   height: 155px;
   width: 960px;
@@ -534,12 +539,24 @@ header h1 {
   background-position: 0 bottom;
 }
 
-/* line 63, sass/Site.scss */
+/* line 68, sass/Site.scss */
 .track-2 {
   margin-top: -60px;
 }
 
-/* line 68, sass/Site.scss */
+/* line 72, sass/Site.scss */
+.q-a {
+  margin-bottom: 40px;
+  font-family: sans-serif;
+}
+/* line 76, sass/Site.scss */
+.q-a:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 84, sass/Site.scss */
 .question,
 .answers {
   width: 45%;
@@ -547,53 +564,43 @@ header h1 {
   margin-top: 60px;
 }
 
-/* line 74, sass/Site.scss */
+/* line 90, sass/Site.scss */
 .question {
   margin-right: 10%;
   text-align: right;
-  margin-top: 68px;
 }
 
-/* line 82, sass/Site.scss */
+/* line 97, sass/Site.scss */
 #question,
 .equals,
 .answers button {
   background-color: #47b4eb;
   font-size: 2em;
   border: 0;
+  letter-spacing: 2px;
   padding: .2em .4em;
   font-weight: bold;
   margin-right: .2em;
   color: white;
-  display: inline;
+  display: inline-block;
   -webkit-border-radius: 0.3em;
   -moz-border-radius: 0.3em;
   -ms-border-radius: 0.3em;
   -o-border-radius: 0.3em;
   border-radius: 0.3em;
 }
-/* line 94, sass/Site.scss */
-#question:hover,
-.equals:hover,
-.answers button:hover {
-  background-color: #30abe8;
-}
 
-/* line 99, sass/Site.scss */
+/* line 111, sass/Site.scss */
 .equals {
   background-color: #b4eb47;
 }
-/* line 102, sass/Site.scss */
-.equals:hover {
-  background-color: #abe830;
-}
 
-/* line 110, sass/Site.scss */
+/* line 122, sass/Site.scss */
 .answers button {
   background-color: #eb9947;
   margin-right: .5em;
 }
-/* line 114, sass/Site.scss */
+/* line 126, sass/Site.scss */
 .answers button:hover {
   background-color: #e66000;
 }

@@ -34,6 +34,8 @@ $equals: hsl(80,80,60);;
 body{
   background-color: $paper;
   color: $ink;
+  font-family: sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
 
 .wrap{
@@ -50,6 +52,9 @@ header h1{
   font-size: 3em;
   letter-spacing: 2px;
   margin-bottom: 0;
+  font-family: 'Dosis', sans-serif;
+  font-weight: 800;
+  color: hsl(10,100,55);
 }
 
 .track{
@@ -64,6 +69,17 @@ header h1{
   margin-top: -60px;
 }
 
+.q-a{
+  margin-bottom: 40px;
+  font-family: sans-serif;
+
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 .question,
 .answers{
   width: 45%;
@@ -74,7 +90,6 @@ header h1{
 .question{
   margin-right: 10%;
   text-align: right;
-  margin-top: 68px;
 }
 
 #question,
@@ -83,25 +98,22 @@ header h1{
   background-color: $question;
   font-size: 2em;
   border: 0;
+  letter-spacing: 2px;
   padding: .2em .4em;
   font-weight: bold;
   margin-right: .2em;
   color: white;
-  display: inline;
+  display: inline-block;
 
   @include border-radius(.3em);
-
-  &:hover{
-    background-color: darken($question, 5);
-  }
 }
 
 .equals{
   background-color: $equals;
-
-  &:hover{
-    background-color: darken($equals, 5);
-  }
+  // line-height: 1.1;
+  // padding-bottom: .45em;
+  // position: relative;
+  // top: -.1em;
 }
 
 .answers{
