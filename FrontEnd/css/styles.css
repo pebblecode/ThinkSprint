@@ -522,7 +522,7 @@ header h1 {
   text-align: center;
   font-size: 3em;
   letter-spacing: 2px;
-  margin-bottom: -20px;
+  margin-bottom: 0;
 }
 
 /* line 51, ../sass/styles.scss */
