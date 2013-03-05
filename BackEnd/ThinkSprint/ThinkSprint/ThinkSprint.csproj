@@ -146,6 +146,7 @@
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\QuestionProvider.cs" />
     <Compile Include="Models\QuestionViewModel.cs" />
+    <Compile Include="Models\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

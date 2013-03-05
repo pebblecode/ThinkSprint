@@ -7,6 +7,7 @@ namespace ThinkSprint.Models
 {
     public  class QuestionProvider
     {
+        public Question CurrentQuestion { get; private set; }
         private List<Question> _questions = new List<Question>()
             {
                 new Question {Answer = 3, Options = new List<string>() {"1", "50", "2", "3"}, Text = "2 + 1"},
@@ -19,6 +20,7 @@ namespace ThinkSprint.Models
         public Question GetNextQuestion()
         {
             var question = _questions[i % _questions.Count];
+            CurrentQuestion = question;
             i++;
             return question;
         }

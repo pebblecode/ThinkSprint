@@ -34,7 +34,6 @@ C:\code\thinkSprint\BackEnd\ThinkSprint\ThinkSprint\bin\System.Web.Razor.xml
 C:\code\thinkSprint\BackEnd\ThinkSprint\ThinkSprint\bin\System.Web.WebPages.xml
 C:\code\thinkSprint\BackEnd\ThinkSprint\ThinkSprint\bin\System.Web.WebPages.Deployment.xml
 C:\code\thinkSprint\BackEnd\ThinkSprint\ThinkSprint\bin\System.Web.WebPages.Razor.xml
-C:\code\thinkSprint\BackEnd\ThinkSprint\ThinkSprint\obj\Debug\ThinkSprint.csprojResolveAssemblyReference.cache
 C:\code\thinkSprint\BackEnd\ThinkSprint\ThinkSprint\obj\Debug\ThinkSprint.dll
 C:\code\thinkSprint\BackEnd\ThinkSprint\ThinkSprint\obj\Debug\ThinkSprint.pdb
 C:\code\thinkSprint\BackEnd\ThinkSprintBrokenffs\ThinkSprint\bin\ThinkSprint.dll

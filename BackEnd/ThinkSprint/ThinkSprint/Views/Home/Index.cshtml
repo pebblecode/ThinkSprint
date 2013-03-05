@@ -23,12 +23,12 @@
         <ul id="discussion">
         </ul>
     </div>
-
-    <span id="question"></span>
-    <button id="answer1"></button>
-    <button id="answer2"></button>
-    <button id="answer3"></button>
-    <button id="answer4"></button>
+    <div id="result"></div>
+    <div id="question" ></div>
+    <button id="answer1" onclick="SendAnswer(0);"></button>
+    <button id="answer2" onclick="SendAnswer(1);"></button>
+    <button id="answer3" onclick="SendAnswer(2);"></button>
+    <button id="answer4" onclick="SendAnswer(3);"></button>
 
     <!--Script references. -->
     <!--Reference the jQuery library. -->
@@ -39,9 +39,14 @@
     <script src="~/signalr/hubs"></script>
     <!--Add script to update the page and send messages.-->
     <script type="text/javascript">
+        function SendAnswer(index) {
+            chat.server.sendAnswer($('#displayname').val(),index);
+        }
+
+        var chat;
         $(function () {
             // Declare a proxy to reference the hub. 
-            var chat = $.connection.chatHub;
+            chat = $.connection.chatHub;
             // Create a function that the hub can call to broadcast messages.
 
             chat.client.recieveQuestion = function (name, question) {
@@ -50,6 +55,14 @@
                 $('#answer2').text(question.Options[1]);
                 $('#answer3').text(question.Options[2]);
                 $('#answer4').text(question.Options[3]);
+            };
+            
+            chat.client.recieveResult = function (result) {
+                if (result.Correct) {
+                    $('#result').text("Correct!!!! :)");
+                } else {
+                    $('#result').text("Wrong. :(");
+                }
             };
 
             chat.client.broadcastMessage = function (name, message) {

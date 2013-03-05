@@ -21,6 +21,17 @@ namespace ThinkSprint
             Clients.All.broadcastMessage(name, message);
         }
 
+        public void SendAnswer(string name, int answer)
+        {
+            var result = new Result();
+            result.Correct = _provider.CurrentQuestion.Answer == answer;
+            Clients.All.RecieveResult(result);
+
+            SendQuestion(name);
+        }
+
+        
+
         private static List<string> _players = new List<string>();
         public void Register(string name)
         {
@@ -34,6 +45,9 @@ namespace ThinkSprint
         {
             SendQuestion(_players[0]);;
         }
+
+
+
 
         private void SendQuestion(string playerName)
         {
