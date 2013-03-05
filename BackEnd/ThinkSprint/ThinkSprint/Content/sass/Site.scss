@@ -85,7 +85,6 @@ header h1{
 .answers{
   width: 45%;
   float: left;
-  margin-top: 60px;
 }
 
 .question{
@@ -182,4 +181,30 @@ header h1{
   border: 2px solid darken($paper, 60);
 }
 
+#currentPlayer{
+  font-size: 2em;
+  margin: 1em 0;
+  font-size: 2em;
+  letter-spacing: 2px;
 
+  &:before{
+    content: "now playing: "
+  }
+}
+
+#resetGame{
+  background-color: hsl(80,90,45);
+  border: 0;
+  letter-spacing: 2px;
+  padding: .2em .4em;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  margin-bottom: 1em;
+
+  @include border-radius(.3em);
+
+  :hover{
+    background-color: hsl(80,90,40);   
+  }
+}
