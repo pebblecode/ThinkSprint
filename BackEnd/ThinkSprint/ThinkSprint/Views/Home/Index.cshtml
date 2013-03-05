@@ -23,8 +23,11 @@
         <ul id="discussion">
         </ul>
     </div>
+    <div id="player1Score"></div>
+        <div id="player2Score"></div>
     <div id="result"></div>
     <div id="question" ></div>
+
     <button id="answer1" onclick="SendAnswer(0);"></button>
     <button id="answer2" onclick="SendAnswer(1);"></button>
     <button id="answer3" onclick="SendAnswer(2);"></button>
@@ -63,6 +66,8 @@
                 } else {
                     $('#result').text("Wrong. :(");
                 }
+                $('#player1Score').text(result.Players[0].Score);
+                $('#player2Score').text(result.Players[1].Score);
             };
 
             chat.client.broadcastMessage = function (name, message) {
