@@ -22,8 +22,10 @@ namespace ThinkSprint
         }
 
 
-        public void SendAnswer(string name, int answer)
+        public void SendAnswer(string name, int index)
         {
+            var answer = _provider.CurrentQuestion.Options[index];
+
             if(!_players.Any())
                 return;
 
@@ -54,6 +56,16 @@ namespace ThinkSprint
 
             if (_players.Count == 2)
                 StartGame();
+        }
+
+        public void ResetGame()
+        {
+            foreach (var player in _players)
+            {
+                player.Score = 0;
+            }
+
+            Clients.All.OnGameReset();
         }
 
         public void StartGame()

@@ -9,6 +9,6 @@ namespace ThinkSprint.Models
     {
         public string Text { get; set; }
         public List<string> Options { get; set; }
-        public int Answer { get; set; }
+        public string Answer { get; set; }
     }
 }
