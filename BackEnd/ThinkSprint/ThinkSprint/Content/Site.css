@@ -723,7 +723,32 @@ header h1 {
 }
 
 /* line 238, sass/Site.scss */
-header .player {
+.header-player {
+  width: 100px;
+  height: 150px;
+  position: relative;
+  -webkit-transition-property: left;
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  transition-property: left;
+  -webkit-transition-duration: 2s;
+  -moz-transition-duration: 2s;
+  -o-transition-duration: 2s;
+  transition-duration: 2s;
+}
+
+/* line 247, sass/Site.scss */
+.header-player-1 {
+  background-image: url("../img/player-1.png");
+}
+
+/* line 251, sass/Site.scss */
+.header-player-2 {
+  background-image: url("../img/player-2.png");
+}
+
+/* line 255, sass/Site.scss */
+header .header-player {
   display: inline-block;
   width: 50px;
   height: 75px;
@@ -733,24 +758,24 @@ header .player {
   margin: 0 1em;
 }
 
-/* line 248, sass/Site.scss */
-header .player-1 {
+/* line 265, sass/Site.scss */
+header .header-player-1 {
   margin-left: 14.5em;
 }
 
-/* line 252, sass/Site.scss */
+/* line 269, sass/Site.scss */
 .header-jump {
   -webkit-animation: header-jump 0.25s steps(3, end) infinite;
   -webkit-animation-direction: alternate;
 }
 
 @-webkit-keyframes header-jump {
-  /* line 258, sass/Site.scss */
+  /* line 275, sass/Site.scss */
   from {
     background-position: 50px 0;
   }
 
-  /* line 259, sass/Site.scss */
+  /* line 276, sass/Site.scss */
   to {
     background-position: 200px 0;
   }

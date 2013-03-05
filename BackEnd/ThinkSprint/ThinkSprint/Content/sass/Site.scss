@@ -235,7 +235,24 @@ header h1{
   }
 }
 
-header .player{
+.header-player{
+  width: 100px;
+  height: 150px;
+  position: relative;
+
+  @include transition-property(left);
+  @include transition-duration(2s);
+}
+
+.header-player-1{
+  background-image: url('../img/player-1.png');
+}
+
+.header-player-2{
+  background-image: url('../img/player-2.png');
+}
+
+header .header-player{
   display: inline-block;
   width: 50px;
   height: 75px;
@@ -245,7 +262,7 @@ header .player{
   margin: 0 1em;
 }
 
-header .player-1{
+header .header-player-1{
   margin-left: 14.5em;
 }
 
