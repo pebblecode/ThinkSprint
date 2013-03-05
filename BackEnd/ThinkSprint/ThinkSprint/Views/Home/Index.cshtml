@@ -42,6 +42,7 @@
         </div>
 
         <div id="currentPlayer"></div>
+        <div id="result"></div>
 
         <div class="q-a">
 
@@ -147,9 +148,11 @@
 
             chat.client.recieveResult = function (result) {
                 if (result.Correct) {
-                    $('#result').text("Correct!!!! :)");
+                    $('#result').addClass("correct");
+                    $('#result').removeClass("wrong");
                 } else {
-                    $('#result').text("Wrong. :(");
+                    $('#result').removeClass("correct");
+                    $('#result').addClass("wrong");
                 }
                 $('#player1Score').text(result.Players[0].Score);
                 //   $('#player2Score').text(result.Players[1].Score);
