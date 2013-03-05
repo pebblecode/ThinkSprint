@@ -511,15 +511,16 @@ body {
   color: #544f45;
   font-family: sans-serif;
   font-family: 'Dosis', sans-serif;
+  letter-spacing: 1px;
 }
 
-/* line 41, sass/Site.scss */
+/* line 42, sass/Site.scss */
 .wrap {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 50, sass/Site.scss */
+/* line 51, sass/Site.scss */
 header h1 {
   text-align: center;
   font-size: 3em;
@@ -530,7 +531,7 @@ header h1 {
   color: #ff401a;
 }
 
-/* line 60, sass/Site.scss */
+/* line 61, sass/Site.scss */
 .track {
   height: 155px;
   width: 960px;
@@ -539,24 +540,24 @@ header h1 {
   background-position: 0 bottom;
 }
 
-/* line 68, sass/Site.scss */
+/* line 69, sass/Site.scss */
 .track-2 {
   margin-top: -60px;
 }
 
-/* line 72, sass/Site.scss */
+/* line 73, sass/Site.scss */
 .q-a {
   margin-bottom: 40px;
   font-family: sans-serif;
 }
-/* line 76, sass/Site.scss */
+/* line 77, sass/Site.scss */
 .q-a:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 84, sass/Site.scss */
+/* line 85, sass/Site.scss */
 .question,
 .answers {
   width: 45%;
@@ -564,13 +565,13 @@ header h1 {
   margin-top: 60px;
 }
 
-/* line 90, sass/Site.scss */
+/* line 91, sass/Site.scss */
 .question {
   margin-right: 10%;
   text-align: right;
 }
 
-/* line 97, sass/Site.scss */
+/* line 98, sass/Site.scss */
 #question,
 .equals,
 .answers button {
@@ -590,17 +591,70 @@ header h1 {
   border-radius: 0.3em;
 }
 
-/* line 111, sass/Site.scss */
+/* line 112, sass/Site.scss */
 .equals {
   background-color: #b4eb47;
 }
 
-/* line 122, sass/Site.scss */
+/* line 123, sass/Site.scss */
 .answers button {
   background-color: #eb9947;
   margin-right: .5em;
 }
-/* line 126, sass/Site.scss */
+/* line 127, sass/Site.scss */
 .answers button:hover {
   background-color: #e66000;
+}
+
+/* line 140, sass/Site.scss */
+.container {
+  width: 100%;
+  background-color: #f1eeea;
+  padding: 1em;
+  margin-bottom: 8em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -ms-border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  border-radius: 0.3em;
+}
+/* line 148, sass/Site.scss */
+.container ul {
+  list-style: none;
+  padding: 0;
+}
+/* line 153, sass/Site.scss */
+.container li {
+  margin-bottom: .2em;
+  color: #8c8473;
+}
+/* line 157, sass/Site.scss */
+.container li strong {
+  color: #544f45;
+}
+
+/* line 163, sass/Site.scss */
+#sendmessage {
+  border: 0;
+  background: #74674e;
+  color: #fbfaf9;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: .2em .4em;
+  letter-spacing: 1px;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -ms-border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  border-radius: 0.3em;
+}
+
+/* line 175, sass/Site.scss */
+#message {
+  padding: .2em .4em;
+  background: #fbfaf9;
+  width: 845px;
+  margin-right: 20px;
+  letter-spacing: 1px;
+  border: 2px solid #74674e;
 }
