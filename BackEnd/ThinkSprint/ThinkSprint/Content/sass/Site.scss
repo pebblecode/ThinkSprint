@@ -56,6 +56,7 @@ header h1{
   font-family: 'Dosis', sans-serif;
   font-weight: 800;
   color: hsl(10,100,55);
+  display: inline-block;
 }
 
 .track{
@@ -232,4 +233,28 @@ header h1{
     font-size: 1.2em;
     content: "Nope!"
   }
+}
+
+header .player{
+  display: inline-block;
+  width: 50px;
+  height: 75px;
+  background-size: 300px 75px;
+  position: relative;
+  top: .8em;
+  margin: 0 1em;
+}
+
+header .player-1{
+  margin-left: 14.5em;
+}
+
+.header-jump{
+  -webkit-animation: header-jump .25s steps(3, end) infinite;
+  -webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes header-jump {
+  from {background-position: 50px 0;};
+  to {background-position: 200px 0;};
 }
