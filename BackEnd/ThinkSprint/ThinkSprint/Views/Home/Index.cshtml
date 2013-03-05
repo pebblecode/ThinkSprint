@@ -88,6 +88,12 @@
                 chat.server.sendAnswer($('#displayname').val(), index, gameName);
             }
         }
+        
+        $("#message").keyup(function (event) {
+            if (event.keyCode == 13) {
+                $("#sendmessage").click();
+            }
+        });
 
         function ResetGame() {
 
