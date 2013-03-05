@@ -43,7 +43,7 @@
             <div id="question"></div>
             <div class="equals">=</div>
         </div>
-
+        <div id="currentPlayer"></div>
         <!-- <div id="result"></div> -->
 
 
@@ -94,6 +94,7 @@
                 $('#answer2').text(question.Options[1]);
                 $('#answer3').text(question.Options[2]);
                 $('#answer4').text(question.Options[3]);
+                $('#currentPlayer').text(name);
             };
 
             chat.client.recieveResult = function(result) {
@@ -114,7 +115,7 @@
                     player2Score = result.Players[1].Score;
                     IncrimentPlayer2();
                 }
-            }
+            };
 
 
             function IncrimentPlayer1() {

@@ -36,7 +36,7 @@ namespace ThinkSprint
 
             Clients.All.RecieveResult(result);
 
-            SendQuestion(name);
+            SendQuestion();
         }
 
 
@@ -46,13 +46,13 @@ namespace ThinkSprint
         {
             _players.Add(new Player { Name = name });
 
-           if (_players.Count == 2)
-            StartGame();
+            if (_players.Count == 2)
+                StartGame();
         }
 
         public void StartGame()
         {
-            SendQuestion(_players[0].Name); ;
+            SendQuestion(); ;
         }
 
         public override System.Threading.Tasks.Task OnDisconnected()
@@ -61,11 +61,13 @@ namespace ThinkSprint
             return base.OnDisconnected();
         }
 
-
-        private void SendQuestion(string playerName)
+        private static int playerIndex = 0;
+        private void SendQuestion()
         {
             var question = _provider.GetNextQuestion();
-            Clients.All.RecieveQuestion(playerName, question);
+            Clients.All.RecieveQuestion(_players[playerIndex].Name, question);
+            playerIndex++;
+            playerIndex = playerIndex%2;
         }
 
 
