@@ -7,6 +7,17 @@ namespace ThinkSprint.Models
 {
     public  class QuestionProvider
     {
+        public QuestionProvider()
+        {
+            Random rand = new Random();
+            this._questions = this._questions.OrderBy(z => rand.Next()).ToList();
+
+            foreach (var question in _questions)
+            {
+                question.Options = question.Options.OrderBy(z => rand.Next()).ToList(); 
+            }
+        }
+
         public Question CurrentQuestion { get; private set; }
         private List<Question> _questions = new List<Question>()
             {

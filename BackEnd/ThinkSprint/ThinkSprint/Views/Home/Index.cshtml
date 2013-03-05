@@ -89,7 +89,7 @@
     <script type="text/javascript">
         function SendAnswer(index) {
             if (!gameOver) {
-                chat.server.sendAnswer($('#displayname').val(), index);
+                chat.server.sendAnswer($('#displayname').val(), index, gameName);
             }
         }
 
@@ -98,7 +98,7 @@
             if (!gameOver)
                 return;
 
-            chat.server.resetGame();
+            chat.server.resetGame(gameName);
         }
 
         function onGameReset() {
@@ -134,7 +134,7 @@
         var player1Score = 0;
         var player2Score = 0;
         var gameOver = false;
-
+        var gameName;
         var chat;
         $(function () {
             // Declare a proxy to reference the hub. 
@@ -156,6 +156,10 @@
                 }
             };
 
+            chat.client.onRegister = function(name) {
+                gameName = name;
+            };
+            
             chat.client.onGameReset = onGameReset;
 
             chat.client.recieveResult = function (result) {
