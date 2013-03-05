@@ -46,7 +46,7 @@ namespace ThinkSprint
         {
             _players.Add(new Player { Name = name });
 
-            // if (_players.Count == 2)
+           if (_players.Count == 2)
             StartGame();
         }
 
