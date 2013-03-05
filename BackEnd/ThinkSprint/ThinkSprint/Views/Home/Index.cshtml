@@ -5,33 +5,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SignalR Simple Chat</title>
-    <style type="text/css">
-        .container {
-            background-color: #99CCFF;
-            border: thick solid #808080;
-            padding: 20px;
-            margin: 20px;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>-=X=-</title>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="~/Content/Site.css">
+
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+    <![endif]-->
 </head>
 <body>
-    <div class="container">
-        <input type="text" id="message" />
-        <input type="button" id="sendmessage" value="Send" />
-        <input type="hidden" id="displayname" />
-        <ul id="discussion">
-        </ul>
-    </div>
-    <div id="player1Score"></div>
-        <div id="player2Score"></div>
-    <div id="result"></div>
-    <div id="question" ></div>
 
-    <button id="answer1" onclick="SendAnswer(0);"></button>
-    <button id="answer2" onclick="SendAnswer(1);"></button>
-    <button id="answer3" onclick="SendAnswer(2);"></button>
-    <button id="answer4" onclick="SendAnswer(3);"></button>
+    <div class="wrap">
+
+        <header>
+            <h1>THINK SPRINTS</h1>
+        </header>
+
+        <div class="track">
+
+            <div class="player player-1 rest position-6">
+            </div>
+
+        </div>
+
+        <div class="track track-2">
+
+            <div class="player player-2 rest position-0">
+            </div>
+
+        </div>
+
+        <div class="container">
+            <input type="text" id="message" />
+            <input type="button" id="sendmessage" value="Send" />
+            <input type="hidden" id="displayname" />
+            <ul id="discussion">
+            </ul>
+        </div>
+        <div id="player1Score"></div>
+        <div id="player2Score"></div>
+        <div id="result"></div>
+        <div id="question"></div>
+
+        <button id="answer1" onclick="SendAnswer(0);"></button>
+        <button id="answer2" onclick="SendAnswer(1);"></button>
+        <button id="answer3" onclick="SendAnswer(2);"></button>
+        <button id="answer4" onclick="SendAnswer(3);"></button>
+    </div>
 
     <!--Script references. -->
     <!--Reference the jQuery library. -->
@@ -43,7 +67,7 @@
     <!--Add script to update the page and send messages.-->
     <script type="text/javascript">
         function SendAnswer(index) {
-            chat.server.sendAnswer($('#displayname').val(),index);
+            chat.server.sendAnswer($('#displayname').val(), index);
         }
 
         var chat;
@@ -59,7 +83,7 @@
                 $('#answer3').text(question.Options[2]);
                 $('#answer4').text(question.Options[3]);
             };
-            
+
             chat.client.recieveResult = function (result) {
                 if (result.Correct) {
                     $('#result').text("Correct!!!! :)");

@@ -75,3 +75,4 @@ C:\code\thinkSprint\BackEnd\ThinkSprintBrokenffs\ThinkSprint\bin\System.Web.WebP
 C:\code\thinkSprint\BackEnd\ThinkSprintBrokenffs\ThinkSprint\obj\Debug\ThinkSprint.csprojResolveAssemblyReference.cache
 C:\code\thinkSprint\BackEnd\ThinkSprintBrokenffs\ThinkSprint\obj\Debug\ThinkSprint.dll
 C:\code\thinkSprint\BackEnd\ThinkSprintBrokenffs\ThinkSprint\obj\Debug\ThinkSprint.pdb
+C:\code\thinkSprint\BackEnd\ThinkSprint\ThinkSprint\obj\Debug\ThinkSprint.csprojResolveAssemblyReference.cache
