@@ -62,7 +62,7 @@
             <ul id="discussion">
             </ul>
         </div>
-
+        <button id="resetGame" onclick="ResetGame();">Reset Game</button>
     </div>
 
     <!--Script references. -->
@@ -75,12 +75,52 @@
     <!--Add script to update the page and send messages.-->
     <script type="text/javascript">
         function SendAnswer(index) {
-            chat.server.sendAnswer($('#displayname').val(), index);
+            if (!gameOver) {
+                chat.server.sendAnswer($('#displayname').val(), index);
+            }
         }
 
+        function ResetGame() {
 
+            if (!gameOver)
+                return;
+            
+            chat.server.resetGame();
+        }
+
+        function onGameReset() {
+
+
+            $('.player-1').removeClass("position-1");
+            $('.player-1').removeClass("position-2");
+            $('.player-1').removeClass("position-3");
+            $('.player-1').removeClass("position-4");
+            $('.player-1').removeClass("position-5");
+            $('.player-1').removeClass("position-6");
+            $('.player-1').removeClass("run");
+            $('.player-1').removeClass("jump");
+            $('.player-1').addClass("rest");
+            $('.player-1').addClass("position-0");
+
+            $('.player-2').removeClass("position-1");
+            $('.player-2').removeClass("position-2");
+            $('.player-2').removeClass("position-3");
+            $('.player-2').removeClass("position-4");
+            $('.player-2').removeClass("position-5");
+            $('.player-2').removeClass("position-6");
+            $('.player-2').removeClass("run");
+            $('.player-2').removeClass("jump");
+            $('.player-2').addClass("rest");
+            $('.player-2').addClass("position-0");
+
+            player1Score = 0;
+            player2Score = 0;
+            gameOver = false;
+
+        }
         var player1Score = 0;
         var player2Score = 0;
+        var gameOver = false;
 
         var chat;
         $(function () {
@@ -97,7 +137,9 @@
                 $('#currentPlayer').text(name);
             };
 
-            chat.client.recieveResult = function(result) {
+            chat.client.onGameReset = onGameReset;
+
+            chat.client.recieveResult = function (result) {
                 if (result.Correct) {
                     $('#result').text("Correct!!!! :)");
                 } else {
@@ -119,79 +161,82 @@
 
 
             function IncrimentPlayer1() {
-                    $('.player-1').removeClass("position-1");
-                    $('.player-1').removeClass("position-2");
-                    $('.player-1').removeClass("position-3");
-                    $('.player-1').removeClass("position-4");
-                    $('.player-1').removeClass("position-5");
-                    $('.player-1').removeClass("position-6");
+                $('.player-1').removeClass("position-1");
+                $('.player-1').removeClass("position-2");
+                $('.player-1').removeClass("position-3");
+                $('.player-1').removeClass("position-4");
+                $('.player-1').removeClass("position-5");
+                $('.player-1').removeClass("position-6");
+                $('.player-1').removeClass("rest");
+                $('.player-1').addClass("run");
+                $('.player-1').addClass("position-" + player1Score);
+                window.setTimeout(function () { $('.player-1').removeClass("run"); }, 2000);
+                window.setTimeout(function () {
+                    $('.player-1').addClass("rest");
+                    CheckPlayer1Win();
+                }, 2000);
+            }
+
+            function CheckPlayer1Win() {
+                if (player1Score == 6) {
+                    gameOver = true;
                     $('.player-1').removeClass("rest");
-                    $('.player-1').addClass("run");
-                    $('.player-1').addClass("position-" + player1Score);
-                    window.setTimeout(function () { $('.player-1').removeClass("run"); }, 2000);
-                    window.setTimeout(function () { $('.player-1').addClass("rest");
-                        CheckPlayer1Win();
-                    }, 2000);
+                    $('.player-1').addClass("jump");
                 }
+            }
 
-                function CheckPlayer1Win() {
-                    if (player1Score == 6) {
-                        $('.player-1').removeClass("rest");
-                        $('.player-1').addClass("jump");
-                    }
-                }
-                
-                function IncrimentPlayer2() {
-                    $('.player-2').removeClass("position-1");
-                    $('.player-2').removeClass("position-2");
-                    $('.player-2').removeClass("position-3");
-                    $('.player-2').removeClass("position-4");
-                    $('.player-2').removeClass("position-5");
-                    $('.player-2').removeClass("position-6");
+            function IncrimentPlayer2() {
+                $('.player-2').removeClass("position-1");
+                $('.player-2').removeClass("position-2");
+                $('.player-2').removeClass("position-3");
+                $('.player-2').removeClass("position-4");
+                $('.player-2').removeClass("position-5");
+                $('.player-2').removeClass("position-6");
+                $('.player-2').removeClass("rest");
+                $('.player-2').addClass("run");
+                $('.player-2').addClass("position-" + player2Score);
+                window.setTimeout(function () { $('.player-2').removeClass("run"); }, 2000);
+                window.setTimeout(function () {
+                    $('.player-2').addClass("rest");
+                    CheckPlayer2Win();
+                }, 2000);
+            }
+
+            function CheckPlayer2Win() {
+                if (player2Score == 6) {
+                    gameOver = true;
                     $('.player-2').removeClass("rest");
-                    $('.player-2').addClass("run");
-                    $('.player-2').addClass("position-" + player2Score);
-                    window.setTimeout(function () { $('.player-2').removeClass("run"); }, 2000);
-                    window.setTimeout(function () {
-                        $('.player-2').addClass("rest");
-                        CheckPlayer2Win();
-                    }, 2000);
+                    $('.player-2').addClass("jump");
                 }
+            };
 
-                function CheckPlayer2Win() {
-                    if (player2Score == 6) {
-                        $('.player-2').removeClass("rest");
-                        $('.player-2').addClass("jump");
-                    }
-                };
-
-                chat.client.broadcastMessage = function (name, message) {
-                    // Html encode display name and message. 
-                    var encodedName = $('<div />').text(name).html();
-                    var encodedMsg = $('<div />').text(message).html();
-                    // Add the message to the page. 
-                    $('#discussion').append('<li><strong>' + encodedName
-                        + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
-                };
-                // Get the user name and store it to prepend to messages.
-                $('#displayname').val(prompt('Enter your name:', ''));
-                // Set initial focus to message input box.  
-                $('#message').focus();
-                // Start the connection.
-                $.connection.hub.start().done(function () {
-                    chat.server.register($('#displayname').val());
+            chat.client.broadcastMessage = function (name, message) {
+                // Html encode display name and message. 
+                var encodedName = $('<div />').text(name).html();
+                var encodedMsg = $('<div />').text(message).html();
+                // Add the message to the page. 
+                $('#discussion').append('<li><strong>' + encodedName
+                    + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+            };
+            // Get the user name and store it to prepend to messages.
+            $('#displayname').val(prompt('Enter your name:', ''));
+            // Set initial focus to message input box.  
+            $('#message').focus();
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                chat.server.register($('#displayname').val());
 
 
 
-                    $('#sendmessage').click(function () {
-                        // Call the Send method on the hub. 
-                        chat.server.send($('#displayname').val(), $('#message').val());
-                        // Clear text box and reset focus for next comment. 
-                        $('#message').val('').focus();
-                    });
+                $('#sendmessage').click(function () {
+                    // Call the Send method on the hub. 
+                    chat.server.send($('#displayname').val(), $('#message').val());
+                    // Clear text box and reset focus for next comment. 
+                    $('#message').val('').focus();
                 });
-
             });
+
+        });
     </script>
 </body>
 </html>
