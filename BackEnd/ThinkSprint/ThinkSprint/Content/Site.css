@@ -661,7 +661,7 @@ header h1 {
 /* line 184, sass/Site.scss */
 #currentPlayer {
   font-size: 2em;
-  margin: 1em 0;
+  margin: 1em 0 0;
   font-size: 2em;
   letter-spacing: 2px;
 }
@@ -689,4 +689,34 @@ header h1 {
 /* line 207, sass/Site.scss */
 #resetGame :hover {
   background-color: #85c20a;
+}
+
+/* line 212, sass/Site.scss */
+#result {
+  width: 30px;
+  height: 30px;
+  margin: .2em 0 1em;
+  background-image: url("../img/result.png");
+}
+
+/* line 219, sass/Site.scss */
+#result.correct {
+  background-position: 60px bottom;
+}
+/* line 221, sass/Site.scss */
+#result.correct:after {
+  padding-left: 40px;
+  font-size: 1.2em;
+  content: "Correct!";
+}
+
+/* line 228, sass/Site.scss */
+#result.wrong {
+  background-position: 30px bottom;
+}
+/* line 230, sass/Site.scss */
+#result.wrong:after {
+  padding-left: 40px;
+  font-size: 1.2em;
+  content: "Nope!";
 }

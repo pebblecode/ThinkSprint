@@ -183,7 +183,7 @@ header h1{
 
 #currentPlayer{
   font-size: 2em;
-  margin: 1em 0;
+  margin: 1em 0 0;
   font-size: 2em;
   letter-spacing: 2px;
 
@@ -206,5 +206,30 @@ header h1{
 
   :hover{
     background-color: hsl(80,90,40);   
+  }
+}
+
+#result{
+  width: 30px;
+  height: 30px;
+  margin: .2em 0 1em; 
+  background-image: url('../img/result.png');
+}
+
+#result.correct{
+  background-position: 60px bottom;
+  &:after{
+    padding-left: 40px;
+    font-size: 1.2em;
+    content: "Correct!"
+  }
+}
+
+#result.wrong{
+  background-position: 30px bottom;
+  &:after{
+    padding-left: 40px;
+    font-size: 1.2em;
+    content: "Nope!"
   }
 }
