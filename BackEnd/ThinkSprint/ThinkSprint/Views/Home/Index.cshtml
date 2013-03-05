@@ -125,9 +125,18 @@
                 $('.player-1').addClass("run");
                 $('.player-1').addClass("position-" + myScore);
                 window.setTimeout(function () { $('.player-1').removeClass("run"); }, 2000);
-                window.setTimeout(function () { $('.player-1').addClass("rest"); }, 2000);
-
+                window.setTimeout(function () { $('.player-1').addClass("rest");
+                    CheckPlayer1Win();
+                }, 2000);
             }
+
+            function CheckPlayer1Win() {
+                if (myScore == 6) {
+                    $('.player-1').removeClass("rest");
+                    $('.player-1').addClass("jump");
+                }
+            }
+
             function IncrimentPlayer2() {
                 $('.player-2').removeClass("position-1");
                 $('.player-2').removeClass("position-2");
