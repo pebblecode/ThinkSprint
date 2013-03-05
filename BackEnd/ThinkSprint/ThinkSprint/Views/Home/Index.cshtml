@@ -60,7 +60,8 @@
                 <button id="answer4" onclick="SendAnswer(3);"></button>
             </div>
 
-        </div> <!-- end .q-a -->
+        </div>
+        <!-- end .q-a -->
 
         <div class="container">
             <input type="text" id="message" />
@@ -91,7 +92,7 @@
 
             if (!gameOver)
                 return;
-            
+
             chat.server.resetGame();
         }
 
@@ -142,6 +143,12 @@
                 $('#answer3').text(question.Options[2]);
                 $('#answer4').text(question.Options[3]);
                 $('#currentPlayer').text(name);
+
+                if (name == $('#displayname').val()) {
+                    $('.answers').removeClass('disabled');
+                } else {
+                    $('.answers').addClass('disabled');
+                }
             };
 
             chat.client.onGameReset = onGameReset;
