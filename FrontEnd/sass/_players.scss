@@ -1,14 +1,21 @@
 //===============================================================================
 // PLAYERS
 //===============================================================================
-.player-1{
-  background-image: url('../img/player-1.png');
+.player{
   width: 100px;
   height: 150px;
   position: relative;
 
   @include transition-property(left);
   @include transition-duration(2s);
+}
+
+.player-1{
+  background-image: url('../img/player-1.png');
+}
+
+.player-2{
+  background-image: url('../img/player-2.png');
 }
 
 .rest{
@@ -25,7 +32,8 @@
 }
 
 .run{
-  -webkit-animation: run 0.35s steps(3, end) infinite;
+  -webkit-animation: run 0.2s steps(3, end) infinite;
+  -webkit-animation-direction: alternate;
 }
 
 @-webkit-keyframes run {
@@ -34,7 +42,8 @@
 }
 
 .jump{
-  -webkit-animation: jump 0.5s steps(3, end) infinite;
+  -webkit-animation: jump .25s steps(3, end) infinite;
+  -webkit-animation-direction: alternate;
 }
 
 @-webkit-keyframes jump {
