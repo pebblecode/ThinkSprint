@@ -529,9 +529,10 @@ header h1 {
   font-family: 'Dosis', sans-serif;
   font-weight: 800;
   color: #ff401a;
+  display: inline-block;
 }
 
-/* line 61, sass/Site.scss */
+/* line 62, sass/Site.scss */
 .track {
   height: 155px;
   width: 960px;
@@ -540,37 +541,37 @@ header h1 {
   background-position: 0 bottom;
 }
 
-/* line 69, sass/Site.scss */
+/* line 70, sass/Site.scss */
 .track-2 {
   margin-top: -60px;
 }
 
-/* line 73, sass/Site.scss */
+/* line 74, sass/Site.scss */
 .q-a {
   margin-bottom: 40px;
   font-family: sans-serif;
 }
-/* line 77, sass/Site.scss */
+/* line 78, sass/Site.scss */
 .q-a:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 85, sass/Site.scss */
+/* line 86, sass/Site.scss */
 .question,
 .answers {
   width: 45%;
   float: left;
 }
 
-/* line 90, sass/Site.scss */
+/* line 91, sass/Site.scss */
 .question {
   margin-right: 10%;
   text-align: right;
 }
 
-/* line 97, sass/Site.scss */
+/* line 98, sass/Site.scss */
 #question,
 .equals,
 .answers button {
@@ -590,22 +591,22 @@ header h1 {
   border-radius: 0.3em;
 }
 
-/* line 111, sass/Site.scss */
+/* line 112, sass/Site.scss */
 .equals {
   background-color: #b4eb47;
 }
 
-/* line 122, sass/Site.scss */
+/* line 123, sass/Site.scss */
 .answers button {
   background-color: #eb9947;
   margin-right: .5em;
 }
-/* line 126, sass/Site.scss */
+/* line 127, sass/Site.scss */
 .answers button:hover {
   background-color: #e66000;
 }
 
-/* line 139, sass/Site.scss */
+/* line 140, sass/Site.scss */
 .container {
   width: 100%;
   background-color: #f1eeea;
@@ -617,22 +618,22 @@ header h1 {
   -o-border-radius: 0.3em;
   border-radius: 0.3em;
 }
-/* line 147, sass/Site.scss */
+/* line 148, sass/Site.scss */
 .container ul {
   list-style: none;
   padding: 0;
 }
-/* line 152, sass/Site.scss */
+/* line 153, sass/Site.scss */
 .container li {
   margin-bottom: .2em;
   color: #8c8473;
 }
-/* line 156, sass/Site.scss */
+/* line 157, sass/Site.scss */
 .container li strong {
   color: #544f45;
 }
 
-/* line 162, sass/Site.scss */
+/* line 163, sass/Site.scss */
 #sendmessage {
   border: 0;
   background: #74674e;
@@ -648,7 +649,7 @@ header h1 {
   border-radius: 0.3em;
 }
 
-/* line 174, sass/Site.scss */
+/* line 175, sass/Site.scss */
 #message {
   padding: .2em .4em;
   background: #fbfaf9;
@@ -658,19 +659,19 @@ header h1 {
   border: 2px solid #74674e;
 }
 
-/* line 184, sass/Site.scss */
+/* line 185, sass/Site.scss */
 #currentPlayer {
   font-size: 2em;
   margin: 1em 0 0;
   font-size: 2em;
   letter-spacing: 2px;
 }
-/* line 190, sass/Site.scss */
+/* line 191, sass/Site.scss */
 #currentPlayer:before {
   content: "now playing: ";
 }
 
-/* line 195, sass/Site.scss */
+/* line 196, sass/Site.scss */
 #resetGame {
   background-color: #95da0b;
   border: 0;
@@ -686,12 +687,12 @@ header h1 {
   -o-border-radius: 0.3em;
   border-radius: 0.3em;
 }
-/* line 207, sass/Site.scss */
+/* line 208, sass/Site.scss */
 #resetGame :hover {
   background-color: #85c20a;
 }
 
-/* line 212, sass/Site.scss */
+/* line 213, sass/Site.scss */
 #result {
   width: 30px;
   height: 30px;
@@ -699,24 +700,58 @@ header h1 {
   background-image: url("../img/result.png");
 }
 
-/* line 219, sass/Site.scss */
+/* line 220, sass/Site.scss */
 #result.correct {
   background-position: 60px bottom;
 }
-/* line 221, sass/Site.scss */
+/* line 222, sass/Site.scss */
 #result.correct:after {
   padding-left: 40px;
   font-size: 1.2em;
   content: "Correct!";
 }
 
-/* line 228, sass/Site.scss */
+/* line 229, sass/Site.scss */
 #result.wrong {
   background-position: 30px bottom;
 }
-/* line 230, sass/Site.scss */
+/* line 231, sass/Site.scss */
 #result.wrong:after {
   padding-left: 40px;
   font-size: 1.2em;
   content: "Nope!";
+}
+
+/* line 238, sass/Site.scss */
+header .player {
+  display: inline-block;
+  width: 50px;
+  height: 75px;
+  background-size: 300px 75px;
+  position: relative;
+  top: .8em;
+  margin: 0 1em;
+}
+
+/* line 248, sass/Site.scss */
+header .player-1 {
+  margin-left: 14.5em;
+}
+
+/* line 252, sass/Site.scss */
+.header-jump {
+  -webkit-animation: header-jump 0.25s steps(3, end) infinite;
+  -webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes header-jump {
+  /* line 258, sass/Site.scss */
+  from {
+    background-position: 50px 0;
+  }
+
+  /* line 259, sass/Site.scss */
+  to {
+    background-position: 200px 0;
+  }
 }
