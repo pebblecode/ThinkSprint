@@ -55,7 +55,11 @@ namespace ThinkSprint
             SendQuestion(_players[0].Name); ;
         }
 
-
+        public override System.Threading.Tasks.Task OnDisconnected()
+        {
+            _players.Clear();
+            return base.OnDisconnected();
+        }
 
 
         private void SendQuestion(string playerName)

@@ -27,7 +27,7 @@
 
         <div class="track">
 
-            <div class="player player-1 rest position-6">
+            <div class="player player-1 rest position-0">
             </div>
 
         </div>
@@ -70,6 +70,10 @@
             chat.server.sendAnswer($('#displayname').val(), index);
         }
 
+
+        var myScore = 0;
+        var otherScore = 0;
+
         var chat;
         $(function () {
             // Declare a proxy to reference the hub. 
@@ -91,9 +95,49 @@
                     $('#result').text("Wrong. :(");
                 }
                 $('#player1Score').text(result.Players[0].Score);
-                $('#player2Score').text(result.Players[1].Score);
+             //   $('#player2Score').text(result.Players[1].Score);
+
+                for (var i = 0; i < result.Players.length; i++) {
+                    if (result.Players[i].Name == $('#displayname').val()) {
+                        if (result.Players[i].Score != myScore) {
+                            myScore = result.Players[i].Score;
+                            IncrimentPlayer1();
+                        }
+                    } /*else {
+                        if (result.Players[i].Score != otherScore) {
+                            otherScore = result.Players[i].Score;
+                            IncrimentPlayer2();
+                        }
+                    }*/
+  
+                }
+
             };
 
+            function IncrimentPlayer1() {
+                $('.player-1').removeClass("position-1");
+                $('.player-1').removeClass("position-2");
+                $('.player-1').removeClass("position-3");
+                $('.player-1').removeClass("position-4");
+                $('.player-1').removeClass("position-5");
+                $('.player-1').removeClass("position-6");
+                $('.player-1').removeClass("rest");
+                $('.player-1').addClass("run");
+                $('.player-1').addClass("position-" + myScore);
+                window.setTimeout(function () { $('.player-1').removeClass("run"); }, 2000);
+                window.setTimeout(function () { $('.player-1').addClass("rest"); }, 2000);
+
+            }
+            function IncrimentPlayer2() {
+                $('.player-2').removeClass("position-1");
+                $('.player-2').removeClass("position-2");
+                $('.player-2').removeClass("position-3");
+                $('.player-2').removeClass("position-4");
+                $('.player-2').removeClass("position-5");
+                $('.player-2').removeClass("position-6");
+
+
+            }
             chat.client.broadcastMessage = function (name, message) {
                 // Html encode display name and message. 
                 var encodedName = $('<div />').text(name).html();
