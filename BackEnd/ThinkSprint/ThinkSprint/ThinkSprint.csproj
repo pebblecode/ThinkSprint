@@ -157,6 +157,7 @@
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="img\player-1.png" />
     <Content Include="img\player-2.png" />
+    <Content Include="img\result.png" />
     <Content Include="img\track.png" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
