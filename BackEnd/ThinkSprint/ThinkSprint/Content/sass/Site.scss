@@ -36,6 +36,7 @@ body{
   color: $ink;
   font-family: sans-serif;
   font-family: 'Dosis', sans-serif;
+  letter-spacing: 1px;
 }
 
 .wrap{
@@ -176,6 +177,7 @@ header h1{
   background: $paper;
   width: 845px;
   margin-right: 20px;
+  letter-spacing: 1px;
 
   border: 2px solid darken($paper, 60);
 }
