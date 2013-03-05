@@ -104,11 +104,6 @@
             autoRequestMedia: true
         });
 
-        webrtc.on('readyToCall', function () {
-            // you can name it anything
-            webrtc.joinRoom('your awesome room name');
-        });
-
         function SendAnswer(index) {
             if (!gameOver) {
                 chat.server.sendAnswer($('#displayname').val(), index, gameName);
@@ -186,6 +181,10 @@
 
             chat.client.onRegister = function (name) {
                 gameName = name;
+                webrtc.on('readyToCall', function () {
+                    // you can name it anything
+                    webrtc.joinRoom(name);
+                });
             };
 
             chat.client.onGameReset = onGameReset;
@@ -278,9 +277,6 @@
             // Start the connection.
             $.connection.hub.start().done(function () {
                 chat.server.register($('#displayname').val());
-
-
-
                 $('#sendmessage').click(function () {
                     // Call the Send method on the hub. 
                     chat.server.send($('#displayname').val(), $('#message').val());
