@@ -275,3 +275,18 @@ header .header-player-1{
   from {background-position: 50px 0;};
   to {background-position: 200px 0;};
 }
+
+// <div id="localVideo"></div>
+// <div id="remotesVideos"></div>
+
+#localVideo,
+#remotesVideos{
+	display: inline-block;
+	margin: 0 1em 1em 0;
+}
+
+#localVideo video,
+#remotesVideos video{
+	display: inline-block;
+	width: 14em;
+}

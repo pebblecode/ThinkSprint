@@ -780,3 +780,17 @@ header .header-player-1 {
     background-position: 200px 0;
   }
 }
+
+/* line 283, sass/Site.scss */
+#localVideo,
+#remotesVideos {
+  display: inline-block;
+  margin: 0 1em 1em 0;
+}
+
+/* line 289, sass/Site.scss */
+#localVideo video,
+#remotesVideos video {
+  display: inline-block;
+  width: 14em;
+}
