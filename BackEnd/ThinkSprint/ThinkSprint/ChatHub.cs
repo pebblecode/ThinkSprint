@@ -24,6 +24,12 @@ namespace ThinkSprint
 
         public void SendAnswer(string name, int answer)
         {
+            if(!_players.Any())
+                return;
+
+            if(name == _players[playerIndex].Name)
+                return;
+            
             var result = new Result();
             result.Players = _players;
             result.Correct = _provider.CurrentQuestion.Answer == answer;
