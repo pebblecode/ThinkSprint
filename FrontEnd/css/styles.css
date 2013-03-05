@@ -1,0 +1,62 @@
+/* line 15, ../sass/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* line 22, ../sass/_normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/* line 32, ../sass/_normalize.scss */
+html {
+  font-size: 100%;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* line 39, ../sass/_normalize.scss */
+body {
+  margin: 0;
+}
+
+/* line 43, ../sass/_normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/* line 50, ../sass/_normalize.scss */
+a:hover,
+a:active {
+  outline: 0;
+}
+
+/* line 57, ../sass/_normalize.scss */
+img {
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+/* line 63, ../sass/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
